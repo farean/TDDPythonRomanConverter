@@ -3,10 +3,21 @@ class NumbersRoman:
 	def __init__(self, arg):
 		super(NumbersRoman, self).__init__()
 		self.arg = arg
+	def ValidateNumber(entervalue):
+		letters=['I','V','X','L','C','D','M']
+		retvalue=True
+		for x in list(entervalue):
+			if (x not in letters):
+				retvalue=False
+				break
+
+		return retvalue
 	def RomToDec(entervalue):
 		sumvalue=0
 		itembefore=""
 		numberbefore=0
+		if not NumbersRoman.ValidateNumber(entervalue):
+			return "NAN"
 
 		for item in range(len(entervalue)):
 			strnumber=entervalue[item]
@@ -39,6 +50,8 @@ class NumbersRoman:
 	def converttoroman(valor):
 		strreturn=""
 		letter=""
+		if not (str(valor).isdigit()):
+			return "NAN"
 		if valor == 0:
 			return ""	
 		else:
